@@ -13,9 +13,8 @@ offers_poi.tsv is included in this repo.
    latitude and longitude.
 
 ## Setup
-* download and install redis if needed
-* redis-server
-* git clone https://github.com/netlogics/software-challenge.git
+* download, install and start redis
+* git clone https://github.com/netlogics/software_challenge.git
 * bundle install
 * rake db:setup
 * bundle exec sidekiq
@@ -26,11 +25,13 @@ offers_poi.tsv is included in this repo.
 * click upload
 
 ## Notes
-Import is handled in the background by redis. To check for job errors
+Import is handled in the background by sidekiq. To check for job errors
 tail -f log/sidekiq.log
 
 You may receive errors on import due the the google geocoding api
 rate limits. This sample assumes geocoding will be successfull as it was
 during development.
 
-
+Import uses the latitude and longitude provided in the import file to
+reverse geocode address information. The address information is parsed
+and assigned to address, city, state and postal_code.
