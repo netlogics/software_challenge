@@ -15,9 +15,10 @@ offers_poi.tsv is included in this repo.
 ## Setup
 * download, install and start redis
 * git clone https://github.com/netlogics/software_challenge.git
+* cd software_challenge
 * bundle install
 * rake db:setup
-* bundle exec sidekiq
+* bundle exec sidekiq (if you see no such file errors you will need to create the directories tmp/pids/sidekiq.pid)
 * rails server
 * browse to localhost:3000/stores/1/locations
 * click import locations
