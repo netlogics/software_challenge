@@ -1,0 +1,7 @@
+<%= simple_form_for @store do |f| %>
+  <%= f.association :account %>
+  <%= f.input :name %>
+  <%= f.input :phone %>
+  <%= f.button :submit %>
+<% end %>
+

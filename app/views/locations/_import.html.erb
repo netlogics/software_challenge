@@ -1,0 +1,6 @@
+<%= simple_form_for @store, url: upload_store_locations_path, multipart: true, method: :post do |f| %>
+  <%= f.file_field :locations_file %>
+
+  <%= f.button :submit %>
+<% end %>
+

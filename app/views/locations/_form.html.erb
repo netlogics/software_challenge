@@ -1,0 +1,13 @@
+<%= simple_form_for @location do |f| %>
+  <%= f.association :store %>
+  <%= f.input :latitude %>
+  <%= f.input :longitude %>
+  <%= f.input :address %>
+  <%= f.input :city %>
+  <%= f.input :state %>
+  <%= f.input :postal_code %>
+  <%= f.input :country %>
+
+  <%= f.button :submit %>
+<% end %>
+
