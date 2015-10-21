@@ -6,7 +6,7 @@ class LocationsControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
-    get :index
+    get :index, store_id: @location.store_id
     assert_response :success
     assert_not_nil assigns(:locations)
   end
@@ -27,7 +27,7 @@ class LocationsControllerTest < ActionController::TestCase
       post :create, location: { address: @location.address, city: @location.city, country: @location.country, latitude: @location.latitude, longitude: @location.longitude, postal_code: @location.postal_code, state: @location.state, store_id: @location.store_id }
     end
 
-    assert_redirected_to location_path(assigns(:location))
+    assert_redirected_to store_location_path(@location.store_id, assigns(:location))
   end
 
   test "should show location" do
@@ -42,7 +42,7 @@ class LocationsControllerTest < ActionController::TestCase
 
   test "should update location" do
     patch :update, id: @location, location: { address: @location.address, city: @location.city, country: @location.country, latitude: @location.latitude, longitude: @location.longitude, postal_code: @location.postal_code, state: @location.state, store_id: @location.store_id }
-    assert_redirected_to location_path(assigns(:location))
+    assert_redirected_to store_location_path(@location.store_id, assigns(:location))
   end
 
   test "should destroy location" do
@@ -50,6 +50,6 @@ class LocationsControllerTest < ActionController::TestCase
       delete :destroy, id: @location
     end
 
-    assert_redirected_to locations_path
+    assert_redirected_to store_locations_url(@location.store_id)
   end
 end
